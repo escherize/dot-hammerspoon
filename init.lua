@@ -5,14 +5,16 @@ local mash_shift = {"ctrl", "alt", "shift"}
 -- application help
 local function open_help()
    help_str =
-      "D - [D]ictionary, " ..
-      ", - Terminal[,] " ..
-      "M - Chro[M]e, " ..
-      "K - Emac[K]s, " ..
-      "L - S[L]ack, " ..
-      "O - Trell[O], " ..
-      ". - all"
-   -- "3 - nothing yet\n" ..
+      "D -> [D]ictionary, " ..
+      ", -> Terminal[,] " ..
+      "M -> Chro[M]e, " ..
+      "K -> Emac[K]s, " ..
+      "L -> S[L]ack, " ..
+      "O -> Trell[O], " ..
+      "T -> [T]elegram, " ..
+      "P -> S[P]otify, " ..
+      ". -> all, " ..
+      "- -> start screensaver"
    -- "4 - nothing yet\n" ..
    -- "5 - nothing yet\n" ..
    -- "6 - nothing yet."
@@ -22,12 +24,15 @@ end
 hs.hotkey.bind(mash_app, '/', open_help)
 
 -- Launch applications
-hs.hotkey.bind(mash_app, 'D', function () hs.application.launchOrFocus("Dictionary") end)
 hs.hotkey.bind({"cmd", "shift"}, 'k', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash_app, 'D', function () hs.application.launchOrFocus("Dictionary") end)
 hs.hotkey.bind(mash_app, 'm', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(mash_app, 'k', function () hs.application.launchOrFocus("Emacs") end)
 hs.hotkey.bind(mash_app, 'l', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(mash_app, 'o', function () hs.application.launchOrFocus("Trello X") end)
+hs.hotkey.bind(mash_app, 't', function () hs.application.launchOrFocus("Telegram") end)
+hs.hotkey.bind(mash_app, '=', function () hs.execute("open '/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app'") end)
+
 
 -- Window Hints
 hs.hotkey.bind(mash_app, '.', hs.hints.windowHints)
